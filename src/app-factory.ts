@@ -47,7 +47,10 @@ export async function createNestApp(options: AppOptions = {}): Promise<INestAppl
   // Global CORS and Preflight handler
   app.use((req: Request, res: Response, next: NextFunction) => {
     const rawOrigins = process.env.CORS_ORIGINS || 'http://localhost:5173,http://127.0.0.1:5173';
-    const allowedOrigins = rawOrigins.split(',').map((o) => o.trim()).filter(Boolean);
+    const allowedOrigins = [
+      ...(options.origins === undefined ? ['https://vansangthuydung.netlify.app'] : []),
+      ...rawOrigins.split(',').map((o) => o.trim().replace(/\/+$/, '')).filter(Boolean),
+    ];
     const origin = req.headers.origin;
 
     if (origin) {
