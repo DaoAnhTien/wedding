@@ -48,7 +48,7 @@ export async function createNestApp(options: AppOptions = {}): Promise<INestAppl
   app.use((req: Request, res: Response, next: NextFunction) => {
     const rawOrigins = process.env.CORS_ORIGINS || 'http://localhost:5173,http://127.0.0.1:5173';
     const allowedOrigins = [
-      ...(options.origins === undefined ? ['https://vansangthuydung.netlify.app'] : []),
+      ...(options.origins === undefined ? ['https://weddingfe.vercel.app'] : []),
       ...rawOrigins.split(',').map((o) => o.trim().replace(/\/+$/, '')).filter(Boolean),
     ];
     const origin = req.headers.origin;
