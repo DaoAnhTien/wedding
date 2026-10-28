@@ -19,7 +19,7 @@ Tên tối đa 100 ký tự, lời nhắn tối đa 2.000 ký tự. POST giới 
 
 ## Triển khai
 
-Chạy `npm start`. Cấu hình qua biến môi trường: `PORT` (3001), `HOST` (127.0.0.1; dùng 0.0.0.0 trong container), `DATABASE_PATH` (mặc định BE/data/wedding.sqlite), `CORS_ORIGINS` (các origin FE phân cách dấu phẩy). FE dùng `VITE_API_URL=https://api.example.com/api` khi build, hoặc reverse proxy `/api` cùng domain.
+Chạy `npm start`. Cấu hình qua biến môi trường: `PORT` (3001), `HOST` (mặc định 0.0.0.0 để nhận kết nối trong container/Render), `DATABASE_PATH` (mặc định BE/data/wedding.sqlite), `CORS_ORIGINS` (các origin FE phân cách dấu phẩy). FE dùng `VITE_API_URL=https://api.example.com/api` khi build, hoặc reverse proxy `/api` cùng domain.
 
 Gắn persistent volume cho thư mục dữ liệu và sao lưu SQLite. API này chạy một instance; rate limit dùng IP socket, khi có reverse proxy cần giới hạn thêm ở proxy. HTTPS được cấu hình tại reverse proxy. Dữ liệu Supabase cũ chưa được chuyển tự động; cần export dữ liệu nếu muốn giữ lịch sử. Danh sách cập nhật khi tải trang, bấm thử lại hoặc gửi thành công, không sử dụng realtime subscription.
 

@@ -9,7 +9,7 @@ async function bootstrap() {
 
   const configService = app.get(ConfigService);
   const port = Number(configService.get<string>('PORT')) || 3001;
-  const host = configService.get<string>('HOST') || '127.0.0.1';
+  const host = configService.get<string>('HOST') || '0.0.0.0';
 
   await app.listen(port, host);
   logger.log(`Wedding API is running on http://${host}:${port}/api`);
