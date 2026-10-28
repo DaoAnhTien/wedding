@@ -1,0 +1,31 @@
+# Local application data
+data/
+
+# Dependencies and build output
+node_modules/
+dist/
+*.tsbuildinfo
+coverage/
+.nyc_output/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+atlas-credentials.env
+
+# Logs and temporary files
+*.log
+*.pid
+*.pid.lock
+.cache/
+*.tmp
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
