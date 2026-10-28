@@ -7,6 +7,7 @@
   "scripts": {
     "build": "tsc && cp src/server.js dist/src/server.js && cp test/api.test.js dist/test/api.test.js",
     "start": "node dist/src/main.js",
+    "start:prod": "node dist/src/main.js",
     "start:dev": "tsx watch src/main.ts",
     "dev": "tsx watch src/main.ts",
     "test": "npm run build && node --test dist/test/api.test.js"
